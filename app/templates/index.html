@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="shutdown.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/shutdown.css') }}" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -44,15 +44,10 @@
       function shutdown(){
         $.ajax({
           type: "POST",
-          url: "shutdown.py",
-          dataType: "text",
+          url: "shutdown",
           success: function(response){
-            output = response;
-            alert(output);
+            alert(response);
           }
-        }).done(function(data){
-          console.log(data);
-          alert(data);
         });
       }
     </script>
